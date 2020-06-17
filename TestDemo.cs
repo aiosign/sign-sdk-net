@@ -73,15 +73,10 @@ namespace sign_sdk_net
             }
 
         }
-
-        // static string baseUrl = "http://192.168.1.36:8087/server";
-        // 
-        static string baseUrl = "http://192.168.2.77:9527";
-        //static string baseUrl = "http://192.168.2.169:9527";
-        //static string baseUrl = "http://192.168.2.178:9527";
-        // static string url = "http://192.168.2.169:8888/notify";
-        static string appId = "709731596076994560";
-        static string appSecret = "79d9ee469d7b45258ac0ee9ac14bfa0d";
+ 
+        const string baseUrl = "http://127.0.0.1:80";
+        const string appId = "Your AppId.";
+        const string appSecret = "Your AppSecret.";
 
 
 
@@ -558,12 +553,12 @@ namespace sign_sdk_net
 				textParams.value = "ceshi BB";
                 List<TextParamsB> listTest = new List<TextParamsB>();
                 listTest.Add(textParams);
-				SignParamsB signParms = new SignParamsB();
-				signParms.height = 13;
-				signParms.seal_id = "ac3364266bd7cbd35de79e2018fa0e86";
-				signParms.sign_key = "signature1";
-				signParms.user_id = "00719956291565015040";
-				signParms.width = 13;
+		SignParamsB signParms = new SignParamsB();
+		signParms.height = 13;
+		signParms.seal_id = "ac3364266bd7cbd35de79e2018fa0e86";
+		signParms.sign_key = "signature1";
+		signParms.user_id = "00719956291565015040";
+		signParms.width = 13;
                 List<SignParamsB> list = new List<SignParamsB>();
                 list.Add(signParms);
                 batchTemplates.sign_params = list;
