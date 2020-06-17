@@ -3,8 +3,7 @@
 #### 环境说明：
 - 1.您需要去大众签章开放平台注册开发者账号，并且申请应用，当您的应用经过审核之后，您将获得一个appid和appsecret，这两个参数决定了您在开放平台的身份标识，只有获得了这两个参数，您才有资格调用开放平台的api接口。 
 - 2.您需要凭借appid和appsecret获取token，某些接口还需要传递签名值(后续会详细介绍),才可调用开放平台的api接口。 
-- 3.sdk采用了Newtonsoft.Json依赖项，所以您首先需要在您的VisualStudio中安装Newtonsoft.Json依赖项，详情可以参考[lombok插件安装参考文档][233455667665] 
-#### Visual Studio 安装使用 Newtonsoft Json 
+- 3.sdk采用了Newtonsoft.Json依赖项，所以您首先需要在您的VisualStudio中安装Newtonsoft.Json依赖项，详情可以参考[Visual Studio 安装使用 Newtonsoft Json][233455667665]  
 [233455667665]: https://www.cnblogs.com/mrraobx/articles/11903807.html "Visual Studio 安装使用 Newtonsoft Json"  
 #### 使用说明：
 以下这个代码示例向您展示了调用 Sign SDK for .NET 的3个主要步骤：
