@@ -25,7 +25,7 @@ namespace sign_sdk_net.util
             string hmacSHA256Str = HmacSHA256(temp, signKey);
             // MD5 加密
             string md5 = GetMD5(hmacSHA256Str);
-            Console.WriteLine("MD5：" + md5);
+            //Console.WriteLine("MD5：" + md5);
             return md5.ToUpper();
         }
         private static string HmacSHA256(string message, string secret)

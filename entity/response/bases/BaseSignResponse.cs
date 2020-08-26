@@ -7,7 +7,7 @@ namespace sign_sdk_net.entity.response
     /// <summary>
     /// base 响应对象
     /// </summary>
-    public sealed class BaseSignResponse
+    public class BaseSignResponse
     {
         /// <summary>
         /// 返回响应值 -- 网关

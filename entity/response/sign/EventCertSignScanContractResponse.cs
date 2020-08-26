@@ -5,9 +5,9 @@ using System.Text;
 namespace sign_sdk_net.entity.response.sign
 {
     /// <summary>
-    /// 扫码签章接口 响应参数
+    /// 事件证书-扫码签章接口 响应参数
     /// </summary>
-    class SignScanContractResponse
+    class EventCertSignScanContractResponse
     {
         /// <summary>
         /// 签署结果
@@ -25,6 +25,9 @@ namespace sign_sdk_net.entity.response.sign
 		/// hash
 		/// </summary>
 		public string hash { set; get; }
-
+        /// <summary>
+		/// 事件证书
+		/// </summary>
+		public List<EventCerts> event_certs { set; get; }
     }
 }

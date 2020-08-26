@@ -5,10 +5,10 @@ using System.Text;
 namespace sign_sdk_net.entity.response.sign
 {
 	/// <summary>
-	/// 合同坐标签章接口 相应数据
+	/// 事件证书-合同坐标签章接口 相应数据
 	/// </summary>
-	class SignCommonResponse
-	{
+	class EventCertSignCommonResponse
+    {
 		/// <summary>
 		/// 签署结果
 		/// </summary>
@@ -25,7 +25,10 @@ namespace sign_sdk_net.entity.response.sign
 		/// hash
 		/// </summary>
 		public string hash { set; get; }
-
+		/// <summary>
+		/// 事件证书
+		/// </summary>
+		public List<EventCerts> event_certs { set; get; }
 
 	}
 }

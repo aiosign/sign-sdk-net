@@ -21,5 +21,9 @@ namespace sign_sdk_net.entity.response.sign
 		/// 文件下载ID
 		/// </summary>
 		public string file_id { set; get; }
+		/// <summary>
+		/// hash
+		/// </summary>
+		public string hash { set; get; }
 	}
 }

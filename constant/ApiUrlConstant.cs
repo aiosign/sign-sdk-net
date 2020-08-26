@@ -51,33 +51,57 @@ namespace sign_sdk_net.constant
         /// </summary>
         public static class Sign
         {
-            private const string Base = "/v1/sign";
+            private const string Base = "/v1";
             /// <summary>
             /// 模板签章_单
             /// </summary>
-            public const string TemplateSingle = Base + "/template/single";
+            public const string TemplateSingle = Base + "/sign/template/single";
             /// <summary>
             /// 模板签章_批
             /// </summary>
-            public const string TemplateBatch = Base + "/template/batch";
+            public const string TemplateBatch = Base + "/sign/template/batch";
             /// <summary>
             /// 合同坐标签章接口
             /// </summary>
-            public const string Common = Base + "/common";
+            public const string Common = Base + "/sign/common";
             /// <summary>
             /// 关键字签章接口
             /// </summary>
-            public const string KeywordSign = Base + "/keywordSign";
+            public const string KeywordSign = Base + "/sign/keywordSign";
             /// <summary>
             /// 会签接口
             /// </summary>
-            public const string MeetingSingle = Base + "/meeting/single";
+            public const string MeetingSingle = Base + "/sign/meeting/single";
             /// <summary>
             /// 扫码签章接口
             /// </summary>
-            public const string ScanSign = Base + "/scanSign";
-
+            public const string ScanSign = Base + "/sign/scanSign";
+            /// <summary>
+            /// 事件证书-模板签章_单
+            /// </summary>
+            public const string EventCertTemplateSingle = Base + "/event_cert_sign/template/single";
+            /// <summary>
+            /// 事件证书-模板签章_批
+            /// </summary>
+            public const string EventCertTemplateBatch = Base + "/event_cert_sign/template/batch";
+            /// <summary>
+            /// 事件证书-合同坐标签章接口
+            /// </summary>
+            public const string EventCertCommon = Base + "/event_cert_sign/common";
+            /// <summary>
+            /// 事件证书-关键字签章接口
+            /// </summary>
+            public const string EventCertKeywordSign = Base + "/event_cert_sign/keywordSign";
+            /// <summary>
+            /// 事件证书-会签接口
+            /// </summary>
+            public const string EventCertMeetingSingle = Base + "/event_cert_sign/meeting/single";
+            /// <summary>
+            /// 事件证书-扫码签章接口
+            /// </summary>
+            public const string EventCertScanSign = Base + "/event_cert_sign/scanSign";
         }
+
         /// <summary>
         /// 印章 api 接口
         /// </summary>
@@ -158,6 +182,10 @@ namespace sign_sdk_net.constant
             /// 异步渲染合同接口
             /// </summary>
             public const string Render = Base + "/render";
+            /// <summary>
+            /// 作废合同接口
+            /// </summary>
+            public const string Abolish = Base + "/abolish";
         }
         /// <summary>
         /// 扫码合同 api 接口
@@ -173,6 +201,18 @@ namespace sign_sdk_net.constant
             /// 合同查询
             /// </summary>
             public const string Query = Base + "/query";
+        }
+
+        /// <summary>
+        /// 扫码事件证书合同 api 接口
+        /// </summary>
+        public static class EventCertScanContract
+        {
+            private const string Base = "/v1/scan/event_cert_contract";
+            /// <summary>
+            /// 添加合同
+            /// </summary>
+            public const string Add = Base + "/add";
         }
 
 
@@ -244,6 +284,79 @@ namespace sign_sdk_net.constant
             /// 合同验签-文件验签
             /// </summary>
             public const string CheckFile = Base + "/check/file";
+        }
+        /// <summary>
+        /// 短信
+        /// </summary>
+        public static class Sms {
+            private const string Base = "/v1/sms";
+            /// <summary>
+            /// 短信单次
+            /// </summary>
+            public const string signle = Base + "/single";
+            /// <summary>
+            /// 短信批量
+            /// </summary>
+            public const string batch = Base + "/batch";
+            /// <summary>
+            /// 短信验证码
+            /// </summary>
+            public const string authCode = Base + "/auth_code";
+            /// <summary>
+            /// 验证-短信验证码
+            /// </summary>
+            public const string validAuthCode = Base + "/valid_auth_code";
+        }
+        public static class Auth {
+            private const string Base = "/v1/authentication";
+            /// <summary>
+            ///三网手机实名认证检测
+            /// </summary>
+            public const string encryQuery = Base+"/encryQuery";
+            /// <summary>
+            /// 银行卡四要素认证
+            /// </summary>
+            public const string blankFourEnCeryQuery = Base + "/blank-encry-query";
+            /// <summary>
+            /// 企业三要素认证
+            /// </summary>
+            public const string enterpriseThreeQuery = Base + "/enterprise-encry-query";
+            /// <summary>
+            /// 数据宝企业四要素认证
+            /// </summary>
+            public const string entFour = Base + "/entFour";
+            /// <summary>
+            /// 支付宝认证-开始认证
+            /// </summary>
+            public const string alipayCertify = Base + "/alipay-certify-start";
+            /// <summary>
+            /// 支付宝认证-认证查询
+            /// </summary>
+            public const string alipayCertifyQuery = Base + "/alipay-certify-query";
+            /// <summary>
+            /// 企业打款
+            /// </summary>
+            public const string enterprisePay = Base + "/enterprise-pay";
+            /// <summary>
+            /// 企业打款查询
+            /// </summary>
+            public const string enterprisePayQuery = Base + "/enterprise-pay-query";
+            /// <summary>
+            /// 企业打款认证
+            /// </summary>
+            public const string enterprisePayValid = Base + "/enterprise-pay-valid";
+            /// <summary>
+            ///获取百度身份验证-语音验证数据
+            /// </summary>
+            public const string baiduSessionCode = Base + "/baidu/session-code";
+            /// <summary>
+            ///获取百度身份验证-语音验证数据
+            /// </summary>
+            public const string baiduVideoVerify = Base + "/baidu/video-verify";
+            /// <summary>
+            ///获取百度身份验证-身份验证
+            /// </summary>
+            public const string baiduCertifyVerify = Base + "/baidu/certify-verify";
         }
     }
 }

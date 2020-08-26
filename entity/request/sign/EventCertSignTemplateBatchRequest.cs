@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using sign_sdk_net.entity.request.bases;
+
+namespace sign_sdk_net.entity.request.sign
+{
+    class EventCertSignTemplateBatchRequest : BaseSignRequest
+    {
+
+        /// <summary>
+        /// 模板id
+        /// </summary>
+        public string template_id { set; get; }
+        /// <summary>
+        /// 签章参数
+        /// </summary>
+        public List<EventCertBatchTemplates> batch_templates { set; get; }
+
+        public class EventCertBatchTemplates
+        {
+            /// <summary>
+            /// 用户自定义ID
+            /// </summary>
+            public string custom_id { set; get; }
+            /// <summary>
+            /// 签名域信息
+            /// </summary>
+            public List<EventCertSignParams> sign_params { set; get; }
+            /// <summary>
+            /// 文本域信息
+            /// </summary>
+            public List<EventCertTextParams> text_params { set; get; }
+        }
+
+        /// <summary>
+        /// 添加签章参数
+        /// </summary>
+        /// <param name="batchTemplate"></param>
+        public void addBatchTempLate(EventCertBatchTemplates eventCertBatch)
+        {
+            (batch_templates = batch_templates == null ? new List<EventCertBatchTemplates>() : batch_templates).Add(eventCertBatch);
+        }
+    }
+}

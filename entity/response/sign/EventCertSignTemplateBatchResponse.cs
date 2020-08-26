@@ -4,18 +4,18 @@ using System.Text;
 
 namespace sign_sdk_net.entity.response.sign
 {
-	/// <summary>
-	/// 批量模板签章相应参数
-	/// </summary>
-	class SignTemplateBatchResponse 
-	{
-		/// <summary>
+    /// <summary>
+    /// 事件证书-批量模板签章相应参数
+    /// </summary>
+    class EventCertSignTemplateBatchResponse
+    {
+        /// <summary>
 		/// 批量处理ID
 		/// </summary>
 		public string batch_id { set; get; }
-		public List<SignInfos> sign_infos { set; get; }
-	}
-	public class SignInfos
+        public List<EventCertSignInfos> sign_infos { set; get; }
+    }
+	public class EventCertSignInfos
 	{
 		/// <summary>
 		/// 签章ID
@@ -37,6 +37,10 @@ namespace sign_sdk_net.entity.response.sign
 		/// hash
 		/// </summary>
 		public string hash { set; get; }
+		/// <summary>
+		/// 事件证书
+		/// </summary>
+		public List<EventCerts> event_certs;
 
 	}
 }

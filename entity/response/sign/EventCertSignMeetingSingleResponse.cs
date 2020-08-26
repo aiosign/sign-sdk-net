@@ -4,11 +4,11 @@ using System.Text;
 
 namespace sign_sdk_net.entity.response.sign
 {
-	/// <summary>
-	/// 会签相应参数
-	/// </summary>
-	class SignMeetingSingleResponse
-	{
+    /// <summary>
+    /// 事件证书-会签相应参数
+    /// </summary>
+    class EventCertSignMeetingSingleResponse
+    {
 		/// <summary>
 		/// 合同Id
 		/// </summary>
@@ -25,5 +25,9 @@ namespace sign_sdk_net.entity.response.sign
 		/// hash
 		/// </summary>
 		public string hash { set; get; }
+		/// <summary>
+		/// 事件证书
+		/// </summary>
+		public List<EventCerts> event_certs { set; get; }
 	}
 }

@@ -82,13 +82,13 @@ namespace sign_sdk_net
 
 
             //获取相应的状态代码
-            Console.WriteLine("响应状态码：" + ((HttpWebResponse)response).StatusDescription);
+            //Console.WriteLine("响应状态码：" + ((HttpWebResponse)response).StatusDescription);
 
             //定义response字符流
             dataStream = response.GetResponseStream();
             StreamReader reader = new StreamReader(dataStream);
             string responseFromServer = reader.ReadToEnd();//读取所有
-            Console.WriteLine("响应数据：" + responseFromServer);
+            //Console.WriteLine("响应数据：" + responseFromServer);
 
             //关闭资源
             reader.Close();

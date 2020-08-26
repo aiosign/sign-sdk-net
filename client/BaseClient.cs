@@ -52,7 +52,7 @@ namespace sign_sdk_net.client
             Token token = tokenDataSource.getToken(appId);
 
             // token 不存在 || 已过期
-            if (token == null || DateTimeUtil.reduced(DateTimeUtil.ToDateTimeFormat(token.expires_in), new DateTime()) < 1)
+            if (token == null || DateTimeUtil.reduced(DateTimeUtil.AddDateTimeFormat(token.expires_in), new DateTime()) < 1)
             {
                 return saveToken();
             }
@@ -109,7 +109,7 @@ namespace sign_sdk_net.client
             {
                 string sign = SignUtil.createSign(body, appSecret);
                 headers.Add(sign_key, sign);
-                Console.WriteLine("请求sign:" + sign);
+                //Console.WriteLine("请求sign:" + sign);
             }
             if (request.needToken)
             {

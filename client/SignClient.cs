@@ -34,6 +34,9 @@ namespace sign_sdk_net.client
         /// 个人用户 api 对象
         /// </summary>
         public PersonalClient Personal { get; private set; }
+        /// <summary>
+        /// 企业用户 api 对象
+        /// </summary>
         public CompanyClient Company { get; private set; }
         /// <summary>
         /// 印章管理
@@ -51,6 +54,10 @@ namespace sign_sdk_net.client
         /// 扫码合同
         /// </summary>
         public ScanContractClient ScanContract { get; private set; }
+        /// <summary>
+        /// 事件证书-扫码合同
+        /// </summary>
+        public EventCertScanContractClient EventCertScanContract { get; private set; }
         /// <summary>
         /// 证书 api对象
         /// </summary>
@@ -70,6 +77,16 @@ namespace sign_sdk_net.client
         /// <returns></returns>
         public SignCheckClient SignCheck { get; set; }
         /// <summary>
+        /// 短信
+        /// </summary>
+        public SmsClient Sms { get; private set; }
+        /// <summary>
+        /// 认证
+        /// </summary>
+        public AuthClient Auth { get; private set; }
+
+
+        /// <summary>
         /// 初始化相关 参数对象
         /// </summary>
         private void init()
@@ -82,8 +99,11 @@ namespace sign_sdk_net.client
             this.Template = new TemplateClient(baseUrl, tokenDataSource, appId, appSecret);
             this.Contract = new ContractClient(baseUrl, tokenDataSource, appId, appSecret);
             this.ScanContract = new ScanContractClient(baseUrl, tokenDataSource, appId, appSecret);
+            this.EventCertScanContract = new EventCertScanContractClient(baseUrl, tokenDataSource, appId, appSecret);
             this.SignOperate = new SignOperateClient(baseUrl, tokenDataSource, appId, appSecret);
             this.SignCheck = new SignCheckClient(baseUrl, tokenDataSource, appId, appSecret);
+            this.Sms=new SmsClient(baseUrl, tokenDataSource, appId, appSecret);
+            this.Auth=new AuthClient(baseUrl, tokenDataSource, appId, appSecret);
         }
 
         /// <summary>

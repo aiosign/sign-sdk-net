@@ -86,6 +86,18 @@ namespace sign_sdk_net.client
             ContractRenderResponse response = base.Send<ContractRenderResponse>(signRequest);
             return response;
         }
+        /// <summary>
+        /// 作废合同
+        /// </summary>
+        /// <param name="contractRenderRequest"></param>
+        /// <returns></returns>
+        public ContractAbolishResponse abolish(ContractAbolishRequest contractAbolishRequest)
+        {
+            SignRequest signRequest = new SignRequest(contractAbolishRequest);
+            signRequest.apiUrl = ApiUrlConstant.Contract.Abolish;
+            ContractAbolishResponse response = base.Send<ContractAbolishResponse>(signRequest);
+            return response;
+        }
 
 
     }

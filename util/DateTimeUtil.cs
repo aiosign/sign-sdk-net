@@ -86,6 +86,11 @@ namespace sign_sdk_net.util
             return DateTime.ParseExact(dateStr, CommonDateFormat, System.Globalization.CultureInfo.CurrentCulture);
         }
 
+        public static DateTime AddDateTimeFormat(string dateStr)
+        {
+           return DateTime.Now.AddMilliseconds(int.Parse(dateStr));
+        }
+
         /// <summary>
         /// 是否是周未
         /// </summary>

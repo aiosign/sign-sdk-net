@@ -28,9 +28,6 @@ namespace sign_sdk_net.entity.request.sign
         {
             (batch_templates = batch_templates == null ? new List<BatchTemplates>() : batch_templates).Add(batchTemplate);
         }
-
-
-
     }
     /// <summary>
     /// 文本域
@@ -86,5 +83,9 @@ namespace sign_sdk_net.entity.request.sign
         /// 印章高度
         /// </summary>
         public double height { set; get; }
+        /// <summary>
+		/// 是否为图章入参
+		/// </summary>
+		public Boolean is_picture { set; get; }
     }
 }
