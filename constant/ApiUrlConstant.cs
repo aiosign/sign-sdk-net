@@ -318,6 +318,18 @@ namespace sign_sdk_net.constant
             /// </summary>
             public const string blankFourEnCeryQuery = Base + "/blank-encry-query";
             /// <summary>
+            /// OCR银行卡
+            /// </summary>
+            public const string ocrBankCard = Base + "/OCR-bank-card";
+            /// <summary>
+            /// OCR识别类型
+            /// </summary>
+            public const string ocrCardType = Base + "/OCR-type-list";
+            /// <summary>
+            /// OCRObject
+            /// </summary>
+            public const string ocrObject = Base + "/OCR-Object";
+            /// <summary>
             /// 企业三要素认证
             /// </summary>
             public const string enterpriseThreeQuery = Base + "/enterprise-encry-query";

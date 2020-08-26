@@ -156,6 +156,21 @@ namespace sign_sdk_net
             blankCardCheckRequest.realname = "测试";
             blankFourEnCeryQuery(blankCardCheckRequest);
 
+            //OCR银行卡
+            OCRBankCardRequest ocrBankCardRequest = new OCRBankCardRequest();
+            ocrBankCardRequest.image = "iVBORw0KGgoAAAANSUhEUgAABwkAAAcJCAYAAAAMDS0dAAAACXBIWXMAAJxAAACcQAHJJQ4RAAAGAGlUWHRYTUw6Y29tLmFkb2JlL";
+            ocrBankCard(ocrBankCardRequest);
+
+            //获取ocr识别类型
+            List<Dictionary<String, String>> ocrCardTypeList = ocrCardType();
+
+            //OCRObject
+            OCRObjectRequest ocrObjectRequest = new OCRObjectRequest();
+            ocrObjectRequest.card_type = "";
+            ocrObjectRequest.file_name = "测试图片.png";
+            ocrObjectRequest.file_base64= "iVBORw0KGgoAAAANSUhEUgAABwkAAAcJCAYAAAAMDS0dAAAACXBIWXMAAJxAAACcQAHJJQ4RAAAGAGlUWHRYTUw6Y29tLmFkb2JlL";
+            ocrObject(ocrObjectRequest);
+
             //企业三要素认证
             EnterpriseQueryRequest enterpriseQueryRequest = new EnterpriseQueryRequest();
             enterpriseQueryRequest.oper_name = "测试";
@@ -2778,5 +2793,80 @@ namespace sign_sdk_net
                 Console.WriteLine("业务异常信息为：" + sse.result_message);
             }
         }
-    }  
+        /// <summary>
+        /// OCR银行卡
+        /// </summary>
+        static void ocrBankCard(OCRBankCardRequest request)
+        {
+            // 初始话 客户端对象 
+            SignClient client = new SignClient(baseUrl, new DictionaryTokenDataSource(), appId, appSecret);
+            try
+            {
+                OCRBankCardResponse response = client.Auth.ocrBankCard(request);
+                Console.WriteLine("OCR银行卡:" + JSONUtil.getJsonStringFromObject(response));
+            }
+            catch (SignApplicationException sae)
+            {
+                // 捕获网关校验数据
+                Console.WriteLine("网关异常状态码为：" + sae.return_code);
+                Console.WriteLine("网关异常信息为：" + sae.return_message);
+            }
+            catch (SignServerException sse)
+            {
+                // 捕获网关校验数据
+                Console.WriteLine("业务异常状态码为：" + sse.result_code);
+                Console.WriteLine("业务异常信息为：" + sse.result_message);
+            }
+        }
+
+        static List<Dictionary<String,String>> ocrCardType() {
+            List<Dictionary<String, String>> list = new List<Dictionary<String, String>>();
+           // 初始话 客户端对象 
+           SignClient client = new SignClient(baseUrl, new DictionaryTokenDataSource(), appId, appSecret);
+            try
+            {
+                BaseSignResponse response = client.Auth.ocrCardType();
+                Console.WriteLine("OCRObject:" + JSONUtil.getJsonStringFromObject(response));
+                list = (List<Dictionary<string, string>>)response.data;
+            }
+            catch (SignApplicationException sae)
+            {
+                // 捕获网关校验数据
+                Console.WriteLine("网关异常状态码为：" + sae.return_code);
+                Console.WriteLine("网关异常信息为：" + sae.return_message);
+            }
+            catch (SignServerException sse)
+            {
+                // 捕获网关校验数据
+                Console.WriteLine("业务异常状态码为：" + sse.result_code);
+                Console.WriteLine("业务异常信息为：" + sse.result_message);
+            }
+            return list;
+        }
+        /// <summary>
+        /// OCRObject
+        /// </summary>
+        static void ocrObject(OCRObjectRequest request)
+        {
+            // 初始话 客户端对象 
+            SignClient client = new SignClient(baseUrl, new DictionaryTokenDataSource(), appId, appSecret);
+            try
+            {
+                OCRObjectResponse response = client.Auth.ocrObject(request);
+                Console.WriteLine("OCRObject:" + JSONUtil.getJsonStringFromObject(response));
+            }
+            catch (SignApplicationException sae)
+            {
+                // 捕获网关校验数据
+                Console.WriteLine("网关异常状态码为：" + sae.return_code);
+                Console.WriteLine("网关异常信息为：" + sae.return_message);
+            }
+            catch (SignServerException sse)
+            {
+                // 捕获网关校验数据
+                Console.WriteLine("业务异常状态码为：" + sse.result_code);
+                Console.WriteLine("业务异常信息为：" + sse.result_message);
+            }
+        }
+    }
 }

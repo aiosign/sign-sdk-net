@@ -5,6 +5,7 @@ using sign_sdk_net.constant;
 using sign_sdk_net.entity;
 using sign_sdk_net.entity.request.auth;
 using sign_sdk_net.entity.request.bases;
+using sign_sdk_net.entity.response;
 using sign_sdk_net.entity.response.auth;
 
 namespace sign_sdk_net.client
@@ -41,6 +42,42 @@ namespace sign_sdk_net.client
             SignRequest signRequest = new SignRequest(request);
             signRequest.apiUrl = ApiUrlConstant.Auth.blankFourEnCeryQuery;
             BankCardEncryResponse response = this.Send<BankCardEncryResponse>(signRequest);
+            return response;
+        }
+        /// <summary>
+        /// OCR银行卡
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public OCRBankCardResponse ocrBankCard(OCRBankCardRequest request) {
+            SignRequest signRequest = new SignRequest(request);
+            signRequest.apiUrl = ApiUrlConstant.Auth.ocrBankCard;
+            OCRBankCardResponse response = this.Send<OCRBankCardResponse>(signRequest);
+            return response;
+        }
+        /// <summary>
+        /// OCR银行卡
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public BaseSignResponse ocrCardType()
+        {
+            SignRequest signRequest = new SignRequest(new BaseSignRequest());
+            signRequest.apiUrl = ApiUrlConstant.Auth.ocrCardType;
+            BaseSignResponse response = this.Send<BaseSignResponse>(signRequest);
+            return response;
+        }
+
+        /// <summary>
+        /// OCRObject
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public OCRObjectResponse ocrObject(OCRObjectRequest request)
+        {
+            SignRequest signRequest = new SignRequest(request);
+            signRequest.apiUrl = ApiUrlConstant.Auth.ocrObject;
+            OCRObjectResponse response = this.Send<OCRObjectResponse>(signRequest);
             return response;
         }
         /// <summary>
