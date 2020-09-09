@@ -98,7 +98,29 @@ namespace sign_sdk_net.client
             ContractAbolishResponse response = base.Send<ContractAbolishResponse>(signRequest);
             return response;
         }
-
-
+        /// <summary>
+        /// 绑定合同
+        /// </summary>
+        /// <param name="contractBindPhoneRequest"></param>
+        /// <returns></returns>
+        public ContractBindPhoneResponse bind(ContractBindPhoneRequest contractBindPhoneRequest) 
+        {
+            SignRequest signRequest = new SignRequest(contractBindPhoneRequest);
+            signRequest.apiUrl = ApiUrlConstant.Contract.Bind;
+            ContractBindPhoneResponse response = base.Send<ContractBindPhoneResponse>(signRequest);
+            return response;
+        }
+        /// <summary>
+        /// 查询绑定合同
+        /// </summary>
+        /// <param name="contractQueryBindRequest"></param>
+        /// <returns></returns>
+        public List<ContractQueryBindResponse> queryBindContract(ContractQueryBindRequest contractQueryBindRequest)
+        {
+            SignRequest signRequest = new SignRequest(contractQueryBindRequest);
+            signRequest.apiUrl = ApiUrlConstant.Contract.QueryBindContract;
+            List<ContractQueryBindResponse> response = base.Send<List<ContractQueryBindResponse>>(signRequest);
+            return response;
+        }
     }
 }
