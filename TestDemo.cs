@@ -102,6 +102,12 @@ namespace sign_sdk_net
             //Console.WriteLine("***********************************************************************");
             //Console.WriteLine("************************检查企业签章流程 end **************************");
 
+            //检查绑定合同接口
+            checkBindContract();
+
+            //检查一步签署接口
+            checkDirctSign();
+
             //检查复合接口
             checkMergesApi();
 
@@ -135,10 +141,113 @@ namespace sign_sdk_net
             Console.WriteLine("***********************************************************************");
             Console.WriteLine("************************检查企业签章聚合流程 end **********************");
         }
+
+        /// <summary>
+        /// 绑定合同
+        /// </summary>
+        static void checkBindContract()
+        {
+            SignClient client = new SignClient(baseUrl, new DictionaryTokenDataSource(), appId, appSecret);
+            //绑定合同添加 start
+            ContractBindPhoneResponse contractBindPhoneResponse = new ContractBindPhoneResponse();
+            try
+            {
+                ContractBindPhoneRequest contractBindPhoneRequest = new ContractBindPhoneRequest();
+                contractBindPhoneRequest.contract_id = "07508a07fa13031d69c3a974f4efefff";
+                List<ContractBindPhoneRequest.BindInfo> bindInfos = new List<ContractBindPhoneRequest.BindInfo>();
+                ContractBindPhoneRequest.BindInfo bindInfo = new ContractBindPhoneRequest.BindInfo();
+                bindInfo.phone = "13711111111";
+                bindInfos.Add(bindInfo);
+                contractBindPhoneRequest.@params = bindInfos;
+                contractBindPhoneResponse = client.Contract.bind(contractBindPhoneRequest);
+                Console.WriteLine("绑定合同:" + JSONUtil.getJsonStringFromObject(contractBindPhoneResponse));
+            }
+            catch (SignApplicationException sae)
+            {
+                // 捕获网关校验数据
+                Console.WriteLine("网关异常状态码为：" + sae.return_code);
+                Console.WriteLine("网关异常信息为：" + sae.return_message);
+            }
+            catch (SignServerException sse)
+            {
+                // 捕获网关校验数据
+                Console.WriteLine("业务异常状态码为：" + sse.result_code);
+                Console.WriteLine("业务异常信息为：" + sse.result_message);
+            }
+            //绑定合同end
+
+            //查询绑定合同添加 start
+            List<ContractQueryBindResponse> contractQueryBindResponse = new List<ContractQueryBindResponse>();
+            try
+            {
+                ContractQueryBindRequest contractQueryBindRequest = new ContractQueryBindRequest();
+                contractQueryBindRequest.contract_name = "";
+                contractQueryBindRequest.phone = "13711111111";
+                contractQueryBindResponse = client.Contract.queryBindContract(contractQueryBindRequest);
+                Console.WriteLine("查询绑定合同:" + JSONUtil.getJsonStringFromObject(contractQueryBindResponse));
+            }
+            catch (SignApplicationException sae)
+            {
+                // 捕获网关校验数据
+                Console.WriteLine("网关异常状态码为：" + sae.return_code);
+                Console.WriteLine("网关异常信息为：" + sae.return_message);
+            }
+            catch (SignServerException sse)
+            {
+                // 捕获网关校验数据
+                Console.WriteLine("业务异常状态码为：" + sse.result_code);
+                Console.WriteLine("业务异常信息为：" + sse.result_message);
+            }
+            //查询绑定合同添加 end
+        }
+        /// <summary>
+        /// 一步签署
+        /// </summary>
+        static void checkDirctSign()
+        {
+            SignClient client = new SignClient(baseUrl, new DictionaryTokenDataSource(), appId, appSecret);
+            //一步签署 start
+            DirectSignResponse directSignResponse = new DirectSignResponse();
+            try
+            {
+                DirectSignRequest directSignRequest = new DirectSignRequest();
+                directSignRequest.contract_file_content = "Base64";
+                directSignRequest.id_number = "37028989828285252201";
+                directSignRequest.user_name = "测试";
+                directSignRequest.user_type = "1";
+                List<DirectSignRequest.SignDetail> signDetails = new List<DirectSignRequest.SignDetail>();
+                DirectSignRequest.SignDetail signDetail = new DirectSignRequest.SignDetail();
+                signDetail.page_num = 1;
+                signDetail.seal_width = 50;
+                signDetail.seal_height = 50;
+                signDetail.seal_file_content = "Base64";
+                signDetail.vertical = 40;
+                signDetail.horizontal = 40;
+                signDetails.Add(signDetail);
+                directSignRequest.sign_fields = signDetails;
+                directSignResponse = client.SignOperate.directSign(directSignRequest);
+                Console.WriteLine("一步签署:" + JSONUtil.getJsonStringFromObject(directSignResponse));
+            }
+            catch (SignApplicationException sae)
+            {
+                // 捕获网关校验数据
+                Console.WriteLine("网关异常状态码为：" + sae.return_code);
+                Console.WriteLine("网关异常信息为：" + sae.return_message);
+            }
+            catch (SignServerException sse)
+            {
+                // 捕获网关校验数据
+                Console.WriteLine("业务异常状态码为：" + sse.result_code);
+                Console.WriteLine("业务异常信息为：" + sse.result_message);
+            }
+            //一步签署 end
+        }
+
         /// <summary>
         /// 检查认证流程
         /// </summary>
-        static void checkAuth() {
+        static void checkAuth()
+        {
             Console.WriteLine("***********************************************************************");
             Console.WriteLine("************************检查认证流程 start ****************************");
             //三网认证 
@@ -168,7 +277,7 @@ namespace sign_sdk_net
             OCRObjectRequest ocrObjectRequest = new OCRObjectRequest();
             ocrObjectRequest.card_type = "";
             ocrObjectRequest.file_name = "测试图片.png";
-            ocrObjectRequest.file_base64= "iVBORw0KGgoAAAANSUhEUgAABwkAAAcJCAYAAAAMDS0dAAAACXBIWXMAAJxAAACcQAHJJQ4RAAAGAGlUWHRYTUw6Y29tLmFkb2JlL";
+            ocrObjectRequest.file_base64 = "iVBORw0KGgoAAAANSUhEUgAABwkAAAcJCAYAAAAMDS0dAAAACXBIWXMAAJxAAACcQAHJJQ4RAAAGAGlUWHRYTUw6Y29tLmFkb2JlL";
             ocrObject(ocrObjectRequest);
 
             //企业三要素认证
@@ -183,7 +292,7 @@ namespace sign_sdk_net
             aliPayCertifyRequest.name = "测试";
             aliPayCertifyRequest.certify_type = CertifyType.CERT_PHOTO;
             aliPayCertifyRequest.id_card_num = "37081119900506061X";
-            string certify_id=aliPayCertify(aliPayCertifyRequest);
+            string certify_id = aliPayCertify(aliPayCertifyRequest);
 
             //支付宝认证-认证查询
             AliPayQueryRequest aliPayQueryRequest = new AliPayQueryRequest();
@@ -208,7 +317,7 @@ namespace sign_sdk_net
             enterprisePayRequest.account_bank = "中国工商银行";
             enterprisePayRequest.account_province = "山东";
             enterprisePayRequest.account_city = "济南";
-            string order_id=enterprisePay(enterprisePayRequest);
+            string order_id = enterprisePay(enterprisePayRequest);
 
             //企业打款查询
             EnterprisePayQueryRequest enterprisePayQueryRequest = new EnterprisePayQueryRequest();
@@ -224,11 +333,11 @@ namespace sign_sdk_net
             enterprisePayValid(enterprisePayValidRequest);
 
             //获取百度身份验证-语音验证数据
-            string session_id=baiduSessionCode();
+            string session_id = baiduSessionCode();
 
             //获取百度身份验证-语音验证数据
             BaiDuAiFaceVideoVerifyRequest baiDuAiFaceVideoVerifyRequest = new BaiDuAiFaceVideoVerifyRequest();
-            FileUploadRequest fileUploadRequest=getFileUploadRequest("D:/demo.mp4", "demo.mp4");
+            FileUploadRequest fileUploadRequest = getFileUploadRequest("D:/demo.mp4", "demo.mp4");
             baiDuAiFaceVideoVerifyRequest.session_id = session_id;
             baiDuAiFaceVideoVerifyRequest.video_file = fileUploadRequest.fileData;
             baiduVideoVerify(baiDuAiFaceVideoVerifyRequest);
@@ -247,7 +356,8 @@ namespace sign_sdk_net
         /// <summary>
         /// 检查短信服务流程
         /// </summary>
-        static void checkSms() {
+        static void checkSms()
+        {
 
             Console.WriteLine("***********************************************************************");
             Console.WriteLine("************************检查短信服务流程 start ************************");
@@ -278,7 +388,7 @@ namespace sign_sdk_net
         /// </summary>
         static void checkMergesPersonal()
         {
-          
+
 
             //个人用户、证书注册
             string userId = personalCertRegister();
@@ -2819,10 +2929,11 @@ namespace sign_sdk_net
             }
         }
 
-        static List<Dictionary<String,String>> ocrCardType() {
+        static List<Dictionary<String, String>> ocrCardType()
+        {
             List<Dictionary<String, String>> list = new List<Dictionary<String, String>>();
-           // 初始话 客户端对象 
-           SignClient client = new SignClient(baseUrl, new DictionaryTokenDataSource(), appId, appSecret);
+            // 初始话 客户端对象 
+            SignClient client = new SignClient(baseUrl, new DictionaryTokenDataSource(), appId, appSecret);
             try
             {
                 BaseSignResponse response = client.Auth.ocrCardType();

@@ -11,7 +11,7 @@ namespace sign_sdk_net.entity.request.scanContract
     class ScanContractAddRequest : BaseSignRequest
     {
         /// <summary>
-        /// 用户id
+        /// 合同id
         /// </summary>
         public string contract_id { get; set; }
         /// <summary>

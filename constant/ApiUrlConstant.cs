@@ -100,6 +100,10 @@ namespace sign_sdk_net.constant
             /// 事件证书-扫码签章接口
             /// </summary>
             public const string EventCertScanSign = Base + "/event_cert_sign/scanSign";
+            /// <summary>
+            /// 一步签署接口
+            /// </summary>
+            public const string DirectSign = Base + "/event_cert_sign/directSign";
         }
 
         /// <summary>
@@ -165,27 +169,35 @@ namespace sign_sdk_net.constant
         /// </summary>
         public static class Contract
         {
-            private const string Base = "/v1/contract";
+            private const string Base = "/v1";
             /// <summary>
             /// 添加合同
             /// </summary>
-            public const string Add = Base + "/add";
+            public const string Add = Base + "/contract/add";
             /// <summary>
             /// 合同查询
             /// </summary>
-            public const string Query = Base + "/query";
+            public const string Query = Base + "/contract/query";
             /// <summary>
             /// 删除合同
             /// </summary>
-            public const string Remove = Base + "/remove";
+            public const string Remove = Base + "/contract/remove";
             /// <summary>
             /// 异步渲染合同接口
             /// </summary>
-            public const string Render = Base + "/render";
+            public const string Render = Base + "/contract/render";
             /// <summary>
             /// 作废合同接口
             /// </summary>
-            public const string Abolish = Base + "/abolish";
+            public const string Abolish = Base + "/contract/abolish";
+            /// <summary>
+            /// 绑定合同接口
+            /// </summary>
+            public const string Bind = Base + "/bind_contract/bind_contract_phone";
+            /// <summary>
+            /// 查询绑定合同接口
+            /// </summary>
+            public const string QueryBindContract = Base + "/bind_contract/query_bind_contract";
         }
         /// <summary>
         /// 扫码合同 api 接口

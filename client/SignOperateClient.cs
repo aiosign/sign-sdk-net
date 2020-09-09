@@ -160,8 +160,17 @@ namespace sign_sdk_net.client
             EventCertSignScanContractResponse response = this.Send<EventCertSignScanContractResponse>(signRequest);
             return response;
         }
-
-
-
+        /// <summary>
+        /// 一步签署接口
+        /// </summary>
+        /// <param name="directSignRequest"></param>
+        /// <returns></returns>
+        public DirectSignResponse directSign(DirectSignRequest directSignRequest) 
+        {
+            SignRequest signRequest = new SignRequest(directSignRequest);
+            signRequest.apiUrl = ApiUrlConstant.Sign.DirectSign;
+            DirectSignResponse response = this.Send<DirectSignResponse>(signRequest);
+            return response;
+        }
     }
 }
