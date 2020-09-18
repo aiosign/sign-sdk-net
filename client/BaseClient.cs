@@ -17,12 +17,16 @@ namespace sign_sdk_net.client
     /// </summary>
     public class BaseClient
     {
-        private string baseUrl;
+        public string baseUrl;
         private TokenDataSource tokenDataSource;
         /// <summary>
         /// token_key
         /// </summary>
         private const string token_key = "Authentication";
+        /// <summary>
+        /// access_token_key
+        /// </summary>
+        public const string access_token_key = "access_token";
         /// <summary>
         /// sign_key
         /// </summary>

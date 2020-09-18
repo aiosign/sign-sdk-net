@@ -163,6 +163,10 @@ namespace sign_sdk_net.constant
             /// 解锁模板
             /// </summary>
             public const string Unlock = Base + "/unlock";
+            /// <summary>
+            /// 模板填充
+            /// </summary>
+            public const string Fill = Base + "/fill";
         }
         /// <summary>
         /// 合同 api 接口
@@ -278,6 +282,10 @@ namespace sign_sdk_net.constant
             /// 文件上传
             /// </summary>
             public const string FileUpload = "/v1/file/upload";
+            /// <summary>
+            /// 文件下载
+            /// </summary>
+            public const string FileDownload = "/v1/file/download";
         }
 
 
@@ -288,6 +296,7 @@ namespace sign_sdk_net.constant
         public static class SignCheck
         {
             private const string Base = "/v1/sign";
+            private const string BaseV2 = "/v2/sign";
             /// <summary>
             /// 合同验签-文件id验签 
             /// </summary>
@@ -296,6 +305,10 @@ namespace sign_sdk_net.constant
             /// 合同验签-文件验签
             /// </summary>
             public const string CheckFile = Base + "/check/file";
+            /// <summary>
+            /// 合同验签V2-文件验签
+            /// </summary>
+            public const string CheckFileV2 = BaseV2 + "/check/file";
         }
         /// <summary>
         /// 短信

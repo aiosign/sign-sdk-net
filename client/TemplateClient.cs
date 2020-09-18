@@ -98,6 +98,17 @@ namespace sign_sdk_net.client
             TemplateUnlockResponse response = this.Send<TemplateUnlockResponse>(signRequest);
             return response;
         }
+        /// <summary>
+        /// 模板填充
+        /// </summary>
+        /// <param name="templateFillRequest"></param>
+        /// <returns></returns>
+        public TemplateFillResponse templateFill(TemplateFillRequest templateFillRequest) {
+            SignRequest signRequest = new SignRequest(templateFillRequest);
+            signRequest.apiUrl = ApiUrlConstant.Template.Fill;
+            TemplateFillResponse response = this.Send<TemplateFillResponse>(signRequest);
+            return response;
+        }
 
     }
 }

@@ -6,6 +6,7 @@ using sign_sdk_net.entity.request.auth;
 using sign_sdk_net.entity.request.cert;
 using sign_sdk_net.entity.request.company;
 using sign_sdk_net.entity.request.contract;
+using sign_sdk_net.entity.request.file;
 using sign_sdk_net.entity.request.personal;
 using sign_sdk_net.entity.request.scanContract;
 using sign_sdk_net.entity.request.seal;
@@ -140,6 +141,27 @@ namespace sign_sdk_net
             checkMergesCompany();
             Console.WriteLine("***********************************************************************");
             Console.WriteLine("************************检查企业签章聚合流程 end **********************");
+        }
+
+        /// <summary>
+        /// 文件下载
+        /// </summary>
+        static void downloadFile()
+        {
+            SignClient client = new SignClient(baseUrl, new DictionaryTokenDataSource(), appId, appSecret);
+            FileDownloadRequest fileDownLoadRequest = new FileDownloadRequest();
+            fileDownLoadRequest.file_id = "a8cf641daa4947f35412ce29141607b4";
+            //下载后另存为（全路径）
+            fileDownLoadRequest.file_name = "D://测试下载印章.png";
+            bool isDownLoad = false;
+            try
+            {
+                isDownLoad = client.FileManager.downloadFile(fileDownLoadRequest);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("文件下载异常" + e.Message);
+            }
         }
 
         /// <summary>
@@ -1936,6 +1958,36 @@ namespace sign_sdk_net
                 Console.WriteLine("业务异常信息为：" + sse.result_message);
             }
             //模板查询 end
+
+            //模板填充 start
+            TemplateFillRequest templateFillRequest = new TemplateFillRequest();
+            templateFillRequest.template_id = "5ef00efc686fe049488a2efa3e75a584";
+            templateFillRequest.user_id = "00752837447373180928";
+            templateFillRequest.name = "测试合同";
+            List<TemplateFillRequest.TextParam> textParams = new List<TemplateFillRequest.TextParam>();
+            TemplateFillRequest.TextParam textParam = new TemplateFillRequest.TextParam();
+            textParam.key = "name";
+            textParam.value = "我的印章测试";
+            textParams.Add(textParam);
+            try
+            {
+                TemplateFillResponse templateFillResponse = client.Template.templateFill(templateFillRequest);
+                Console.WriteLine("模板填充:" + JSONUtil.getJsonStringFromObject(templateFillResponse));
+
+            }
+            catch (SignApplicationException sae)
+            {
+                // 捕获网关校验数据
+                Console.WriteLine("网关异常状态码为：" + sae.return_code);
+                Console.WriteLine("网关异常信息为：" + sae.return_message);
+            }
+            catch (SignServerException sse)
+            {
+                // 捕获网关校验数据
+                Console.WriteLine("业务异常状态码为：" + sse.result_code);
+                Console.WriteLine("业务异常信息为：" + sse.result_message);
+            }
+            //模板填充 end
 
             //模板锁定 start
             try
