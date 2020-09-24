@@ -2,12 +2,7 @@
 using sign_sdk_net.entity;
 using sign_sdk_net.entity.request.bases;
 using sign_sdk_net.entity.request.cert;
-using sign_sdk_net.entity.request.company;
 using sign_sdk_net.entity.response.cert;
-using sign_sdk_net.entity.response.company;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace sign_sdk_net.client
 {
@@ -30,6 +25,19 @@ namespace sign_sdk_net.client
 			SignRequest signRequest = new SignRequest(certApplyRequest);
 			signRequest.apiUrl = ApiUrlConstant.Cert.Apply;
 			CertApplyResponse response = base.Send<CertApplyResponse>(signRequest);
+			return response;
+		}
+
+		/// <summary>
+		/// 证书续期
+		/// </summary>
+		/// <param name="certRenewalRequest"></param>
+		/// <returns></returns>
+		public CertRenewalResponse certRenewal(CertRenewalRequest certRenewalRequest)
+		{
+			SignRequest signRequest = new SignRequest(certRenewalRequest);
+			signRequest.apiUrl = ApiUrlConstant.Cert.Renewal;
+			CertRenewalResponse response = base.Send<CertRenewalResponse>(signRequest);
 			return response;
 		}
 

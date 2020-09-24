@@ -143,6 +143,8 @@ namespace sign_sdk_net
             Console.WriteLine("************************检查企业签章聚合流程 end **********************");
         }
 
+
+
         /// <summary>
         /// 文件下载
         /// </summary>
@@ -2502,6 +2504,35 @@ namespace sign_sdk_net
             return certId;
 
         }
+
+        /// <summary>
+        /// 证书续期
+        /// </summary>
+        /// <param name="userId"></param>
+        static void certRenewal(string userId)
+        {
+            //初始化 客户端对象
+            SignClient client = new SignClient(baseUrl, new DictionaryTokenDataSource(), appId, appSecret);
+            CertRenewalResponse certRenewalResponse = null;
+            try
+            {
+                certRenewalResponse = client.Cert.certRenewal(new CertRenewalRequest(userId));
+                Console.WriteLine("证书续期：" + JSONUtil.getJsonStringFromObject(certRenewalResponse));
+            }
+            catch (SignApplicationException sae)
+            {
+                // 捕获网关校验数据
+                Console.WriteLine("网关异常状态码为: " + sae.return_code);
+                Console.WriteLine("网关异常信息为: " + sae.return_message);
+            }
+            catch (SignServerException sse)
+            {
+                // 捕获网关校验数据
+                Console.WriteLine("业务异常状态码为：" + sse.result_code);
+                Console.WriteLine("业务异常信息为：" + sse.result_message);
+            }
+        }
+
 
 
         /// <summary>

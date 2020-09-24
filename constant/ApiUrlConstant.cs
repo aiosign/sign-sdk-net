@@ -267,6 +267,10 @@ namespace sign_sdk_net.constant
             /// </summary>
             public const string Apply = Base + "/apply";
             /// <summary>
+            /// 证书续期
+            /// </summary>
+            public const string Renewal = Base + "/renewal";
+            /// <summary>
             /// 证书查询
             /// </summary>
             public const string Certinfo = Base + "/certinfo";
