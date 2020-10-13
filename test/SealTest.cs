@@ -29,9 +29,7 @@ namespace sign_sdk_net.test
 		public void addSealAndFile()
 		{
 			SealFileAddRequest sealFileAddRequest = new SealFileAddRequest();
-			//印章文件上传
-			FileUploadRequest fileUploadRequest = new FileUploadRequest("D:/seal/seal.png", "我的印章.png", FileType.impression, "00765245060136194048");
-			sealFileAddRequest.fileUploadRequest = fileUploadRequest;
+			
 			SealAddRequest sealAddRequest = new SealAddRequest();
 			sealAddRequest.user_id = "00765245060136194048";
 			sealAddRequest.seal_name = "测试印章D";
@@ -39,8 +37,13 @@ namespace sign_sdk_net.test
 			sealAddRequest.size = "40*40";
 			sealAddRequest.description = "备注法人章";
 			sealFileAddRequest.sealAddRequest = sealAddRequest;
+
 			try
 			{
+				//印章文件上传
+				FileUploadRequest fileUploadRequest = new FileUploadRequest("D:/seal/seal.png", "我的印章.png", FileType.impression, "00765245060136194048");
+				sealFileAddRequest.fileUploadRequest = fileUploadRequest;
+
 				SealAddResponse response = client.Seal.addSealAndFile(sealFileAddRequest);
 				Console.WriteLine("新增印章以及文件-响应数据：" + JSONUtil.getJsonStringFromObject(response));
 			}
@@ -74,6 +77,7 @@ namespace sign_sdk_net.test
 			sealAddRequest.size = "40*40";
 			sealAddRequest.description = "备注法人章";
 			sealAddRequest.file_id = "1044188e6f337c07a0f18087ea5e6a74";
+
 			try
 			{
 				SealAddResponse response = client.Seal.add(sealAddRequest);

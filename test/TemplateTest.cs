@@ -27,18 +27,20 @@ namespace sign_sdk_net.test
 		/// </summary>
 		public void addTemplateAndFile()
 		{
-			// 创建模板以及文件 begin
+			// 创建模板以及文件 
 			TemplateFileAddRequest templateFileAddRequest = new TemplateFileAddRequest();
-			//模板文件上传
-			FileUploadRequest fileUploadRequest = new FileUploadRequest("D://telmplate//劳动合同模板.pdf", "劳动合同模板.pdf", FileType.template, "00765245060136194048");
-			templateFileAddRequest.fileUploadRequest = fileUploadRequest;
-			// 模板请求数据 begin
+
+			// 模板请求数据 
 			TemplateAddRequest templateAddRequest = new TemplateAddRequest();
 			templateAddRequest.name = "我的模板";
 			templateFileAddRequest.templateAddRequest = templateAddRequest;
 
 			try
 			{
+				//模板文件上传
+				FileUploadRequest fileUploadRequest = new FileUploadRequest("D://telmplate//劳动合同模板.pdf", "劳动合同模板.pdf", FileType.template, "00765245060136194048");
+				templateFileAddRequest.fileUploadRequest = fileUploadRequest;
+
 				TemplateAddResponse response = client.Template.addTemplateAndFile(templateFileAddRequest);
 				Console.WriteLine("添加模板以及文件-响应数据：" + JSONUtil.getJsonStringFromObject(response));
 			}
@@ -67,6 +69,7 @@ namespace sign_sdk_net.test
 			TemplateAddRequest templateAddRequest = new TemplateAddRequest();
 			templateAddRequest.file_id = "b5b1bcc77e74a5dc54a32215c25ea22d";
 			templateAddRequest.name = "劳动合同模板";
+
 			try
 			{
 				

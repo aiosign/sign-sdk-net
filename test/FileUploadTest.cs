@@ -109,7 +109,7 @@ namespace sign_sdk_net.test
             }
             catch (Exception e)
             {
-                Console.WriteLine("上传合同文件-异常：" + e.Message);
+                Console.WriteLine("上传模板文件-异常：" + e.Message);
             }
         }
     }

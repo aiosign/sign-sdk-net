@@ -49,12 +49,15 @@ namespace sign_sdk_net.test
 		/// </summary>
 		public void checkFile()
 		{
-			FileUploadRequest fileUploadRequest = new FileUploadRequest("D://contract//签署完成合同.pdf", "签署完成合同.pdf");
-			SignCheckFileRequest signCheckFileRequest = new SignCheckFileRequest();
-			signCheckFileRequest.fileData = fileUploadRequest.fileData;
-			signCheckFileRequest.fileDataName = fileUploadRequest.fileDataName;
+
 			try
 			{
+				FileUploadRequest fileUploadRequest = new FileUploadRequest("D://contract//签署完成合同.pdf", "签署完成合同.pdf");
+
+				SignCheckFileRequest signCheckFileRequest = new SignCheckFileRequest();
+				signCheckFileRequest.fileData = fileUploadRequest.fileData;
+				signCheckFileRequest.fileDataName = fileUploadRequest.fileDataName;
+
 				SignCheckFileResponse signCheckFileResponse = client.SignCheck.checkFile(signCheckFileRequest);
 				Console.WriteLine("文件验签-响应数据:" + JSONUtil.getJsonStringFromObject(signCheckFileResponse));
 
@@ -70,6 +73,10 @@ namespace sign_sdk_net.test
 				// 捕获网关校验数据
 				Console.WriteLine("文件验签-业务异常状态码为：" + sse.result_code);
 				Console.WriteLine("文件验签-业务异常信息为：" + sse.result_message);
+			}
+			catch (Exception e) 
+			{
+				Console.WriteLine("文件验签-异常为：" + e.Message);
 			}
 		}
 	}

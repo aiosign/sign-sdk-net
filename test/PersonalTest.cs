@@ -34,6 +34,7 @@ namespace sign_sdk_net.test
 			personalRegisterRequest.mail = "123456@sdgd.com";
 			personalRegisterRequest.phone = "13711111121";
 			personalRegisterRequest.user_name = "测试个人用户";
+
 			try
 			{
 				PersonalRegisterResponse response = client.Personal.personalCertRegister(personalRegisterRequest);
@@ -89,6 +90,7 @@ namespace sign_sdk_net.test
 			personalRegisterRequest.mail = "123456@sdgd.com";
 			personalRegisterRequest.phone = "13711111121";
 			personalRegisterRequest.user_name = "测试个人用户";
+
 			try
 			{
 				PersonalRegisterResponse response = client.Personal.personalRegister(personalRegisterRequest);
@@ -155,7 +157,5 @@ namespace sign_sdk_net.test
 				Console.WriteLine("解锁个人用户-业务异常信息为：" + sse.result_message);
 			}
 		}
-
-      
     }
 }

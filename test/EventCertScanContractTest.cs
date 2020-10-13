@@ -43,6 +43,7 @@ namespace sign_sdk_net.test
 			field.seal_id = "babeef37549d22cbb50ce5436cdb3037";
 			fields.Add(field);
 			scanContractAddRequest.fields = fields;
+
 			try
 			{
 				ScanContractAddResonse resonse = client.EventCertScanContract.add(scanContractAddRequest);

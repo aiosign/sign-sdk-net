@@ -236,6 +236,7 @@ namespace sign_sdk_net
         /// <summary>
         /// 原始调用Paas Api接口
         /// </summary>
+        /// <param name="paasClient"></param>
         static void checkPaasApi(PaasClient paasClient)
         {
             PaasTest test = new PaasTest(paasClient);

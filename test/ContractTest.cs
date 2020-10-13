@@ -27,19 +27,22 @@ namespace sign_sdk_net.test
 		/// </summary>
 		public void addContractAndFile()
 		{
-			// 创建合同以及文件 begin
+			// 创建合同以及文件 
 			ContractFileAddRequest contractFileAddRequest = new ContractFileAddRequest();
-			//合同文件上传
-			FileUploadRequest fileUploadRequest = new FileUploadRequest("D://contract//我的合同.pdf", "我的合同.pdf", FileType.contract, "00765245060136194048");
-			contractFileAddRequest.fileUploadRequest = fileUploadRequest;
-			// 合同请求数据 begin
+
+			// 合同请求数据 
 			ContractAddRequest contractAddRequest = new ContractAddRequest();
 			contractAddRequest.name = "合同测试";
 			contractAddRequest.user_id = "00765245060136194048";
 			contractAddRequest.description = "这是个新加合同";
 			contractFileAddRequest.contractAddRequest = contractAddRequest;
+
 			try
 			{
+				//合同文件上传
+				FileUploadRequest fileUploadRequest = new FileUploadRequest("D://contract//我的合同.pdf", "我的合同.pdf", FileType.contract, "00765245060136194048");
+				contractFileAddRequest.fileUploadRequest = fileUploadRequest;
+
 				ContractAddResponse response = client.Contract.addContractAndFile(contractFileAddRequest);
 				Console.WriteLine("合同以及文件添加-响应数据：" + JSONUtil.getJsonStringFromObject(response));
 			}
@@ -70,6 +73,7 @@ namespace sign_sdk_net.test
 			contractAddRequest.user_id = "00765245060136194048";
 			contractAddRequest.description = "这是个新加合同";
 			contractAddRequest.file_id = "0026adc7ba67382d02e7e5a4502ca90e";
+
 			try
 			{
 				ContractAddResponse response = client.Contract.add(contractAddRequest);
@@ -190,6 +194,7 @@ namespace sign_sdk_net.test
 			ContractBindPhoneRequest.BindInfo bindInfo = new ContractBindPhoneRequest.BindInfo();
 			bindInfo.phone = "13721111111";
 			contractBindPhoneRequest.addParams(bindInfo);
+
 			try
 			{
 				ContractBindPhoneResponse response= client.Contract.bind(contractBindPhoneRequest);
@@ -216,6 +221,7 @@ namespace sign_sdk_net.test
 			ContractQueryBindRequest contractQueryBindRequest = new ContractQueryBindRequest();
 			contractQueryBindRequest.contract_name = "绑定测试合同";
 			contractQueryBindRequest.phone = "13721111111";
+
 			try
 			{
                 List<ContractQueryBindResponse> response = client.Contract.queryBindContract(contractQueryBindRequest);
