@@ -30,6 +30,11 @@ namespace sign_sdk_net.entity.request.sign
         /// 签署详情
         /// </summary>
         public List<SignDetail> sign_fields { set; get; }
+
+        public void addSignField(SignDetail signDetail)
+        {
+            (sign_fields = sign_fields == null ? new List<SignDetail>() : sign_fields).Add(signDetail);
+        }
         /// <summary>
         /// 签署详情
         /// </summary>

@@ -66,7 +66,7 @@ namespace sign_sdk_net.client
         ///</summary>
         ///<param name="companyLockRequest"></param>
         ///<returns></returns>
-        public CompanyLockResponse companylock(CompanyLockRequest companyLockRequest)
+        public CompanyLockResponse companyLock(CompanyLockRequest companyLockRequest)
         {
             SignRequest signRequest = new SignRequest(companyLockRequest);
             signRequest.apiUrl = ApiUrlConstant.Company.Lock;

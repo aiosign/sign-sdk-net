@@ -18,6 +18,11 @@ namespace sign_sdk_net.entity.request.sign
 		/// 
 		/// </summary>
 		public List<SignDetails> sign_details { set; get; }
+
+		public void addSignDetails(SignDetails signDetail) 
+		{
+			(sign_details = sign_details == null ? new List<SignDetails>() : sign_details).Add(signDetail);
+		}
 	}
 	public class SignDetails
 	{

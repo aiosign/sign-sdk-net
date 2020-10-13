@@ -12,10 +12,10 @@ namespace sign_sdk_net.entity.response.sign
         /// <summary>
         /// 用户ID
         /// </summary>
-        private string user_id { set; get; }
+        public string user_id { set; get; }
         /// <summary>
         /// 证书Id
         /// </summary>
-        private string cert_id { set; get; }
+        public string cert_id { set; get; }
     }
 }

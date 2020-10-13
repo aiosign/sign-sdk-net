@@ -24,7 +24,7 @@ namespace sign_sdk_net.client
         /// </summary>
         /// <param name="contractFileAddRequest"></param>
         /// <returns></returns>
-        public ContractAddResponse add(ContractFileAddRequest contractFileAddRequest)
+        public ContractAddResponse addContractAndFile(ContractFileAddRequest contractFileAddRequest)
         {
             //上传合同文件
             FileUploadRequest fileUploadRequest = contractFileAddRequest.fileUploadRequest;

@@ -20,13 +20,13 @@ namespace sign_sdk_net.client
         { }
 
         /// <summary>
-        /// 印章添加接口
+        /// 印章以及文件添加接口
         /// </summary>
         /// <param name="sealFileAddRequest"></param>
         /// <returns></returns>
-        public SealAddResponse sealAdd(SealFileAddRequest sealFileAddRequest)
+        public SealAddResponse addSealAndFile(SealFileAddRequest sealFileAddRequest)
         {
-            //上传印章文件]
+            //上传印章文件
             FileUploadRequest fileUploadRequest = sealFileAddRequest.fileUploadRequest;
             fileUploadRequest.fileType = FileType.impression;
             FileUploadResponse fileUploadResponse = base.fileUpload(fileUploadRequest);
@@ -44,7 +44,7 @@ namespace sign_sdk_net.client
         /// </summary>
         /// <param name="sealAddRequest"></param>
         /// <returns></returns>
-        public SealAddResponse sealAdd(SealAddRequest sealAddRequest)
+        public SealAddResponse add(SealAddRequest sealAddRequest)
         {
             SignRequest signRequest = new SignRequest(sealAddRequest);
             signRequest.apiUrl = ApiUrlConstant.Seal.Add;
@@ -56,7 +56,7 @@ namespace sign_sdk_net.client
         /// </summary>
         /// <param name="sealQueryRequest"></param>
         /// <returns></returns>
-        public SealQueryResponse sealQuery(SealQueryRequest sealQueryRequest)
+        public SealQueryResponse query(SealQueryRequest sealQueryRequest)
         {
             SignRequest signRequest = new SignRequest(sealQueryRequest);
             signRequest.apiUrl = ApiUrlConstant.Seal.Query;
@@ -82,7 +82,7 @@ namespace sign_sdk_net.client
         /// </summary>
         /// <param name="sealRemoveRequest"></param>
         /// <returns></returns>
-        public SealRemoveResponse sealRemove(SealRemoveRequest sealRemoveRequest)
+        public SealRemoveResponse remove(SealRemoveRequest sealRemoveRequest)
         {
             SignRequest signRequest = new SignRequest(sealRemoveRequest);
             signRequest.apiUrl = ApiUrlConstant.Seal.Remove;

@@ -42,6 +42,11 @@ namespace sign_sdk_net.entity.request.scanContract
 		/// 预处理签署信息
 		/// </summary>
 		public List<Fields> fields { set; get; }
+
+        public void addFields(Fields field)
+        {
+            (fields = fields == null ? new List<Fields>() : fields).Add(field);
+        }
         /// <summary>
         /// 预处理签署信息
         /// </summary>

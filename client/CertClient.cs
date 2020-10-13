@@ -41,6 +41,11 @@ namespace sign_sdk_net.client
 			return response;
 		}
 
+		/// <summary>
+		/// 证书信息
+		/// </summary>
+		/// <param name="certCertinfoRequest"></param>
+		/// <returns></returns>
 		public CertCertinfoResponse certinfo(CertCertinfoRequest certCertinfoRequest)
 		{
 			SignRequest signRequest = new SignRequest(certCertinfoRequest);

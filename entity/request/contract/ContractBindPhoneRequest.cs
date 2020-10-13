@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 using sign_sdk_net.entity.request.bases;
 
 namespace sign_sdk_net.entity.request.contract
@@ -15,9 +16,15 @@ namespace sign_sdk_net.entity.request.contract
         /// </summary>
         public string contract_id { get; set; }
         /// <summary>
-		/// 绑定手机信息
-		/// </summary>
-		public List<BindInfo> @params { set; get; }
+        /// 绑定手机信息
+        /// </summary>
+        [JsonProperty(PropertyName = "params")]
+        public List<BindInfo> req_params { set; get; }
+       
+        public void addParams(BindInfo param)
+        {
+            (req_params = req_params == null ? new List<BindInfo>() : req_params).Add(param);
+        }
         /// <summary>
         /// 绑定手机信息
         /// </summary>

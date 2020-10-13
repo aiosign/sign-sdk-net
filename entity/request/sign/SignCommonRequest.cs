@@ -26,6 +26,11 @@ namespace sign_sdk_net.entity.request.sign
 		/// 
 		/// </summary>
 		public List<Fields> fields { set; get; }
+
+		public void addFields(Fields field)
+		{
+			(fields = fields == null ? new List<Fields>() : fields).Add(field);
+		}
 	}
 	public class Fields
 	{

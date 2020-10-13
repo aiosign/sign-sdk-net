@@ -18,8 +18,6 @@ namespace sign_sdk_net.entity.request.sign
 		/// 签章参数
 		/// </summary>
 		public SignField sign_field { set; get; }
-		
-
 	}
 	/// <summary>
 	/// 文本域
@@ -41,10 +39,20 @@ namespace sign_sdk_net.entity.request.sign
 		/// 签名域信息
 		/// </summary>
 		public List<SignParams> sign_params { set; get; }
+
+		public void addSignParams(SignParams signParams)
+		{
+			(sign_params = sign_params == null ? new List<SignParams>() : sign_params).Add(signParams);
+		}
 		/// <summary>
 		/// 文本域信息
 		/// </summary>
 		public List<TextParams> text_params { set; get; }
+
+		public void addTextParams(TextParams textParams)
+		{
+			(text_params = text_params == null ? new List<TextParams>() : text_params).Add(textParams);
+		}
 	}
 	/// <summary>
 	/// 签名域信息

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 using sign_sdk_net.entity.request.bases;
 
 namespace sign_sdk_net.entity.request.sms
@@ -8,7 +9,7 @@ namespace sign_sdk_net.entity.request.sms
     /// <summary>
     /// 批量-短信通知 请求参数
     /// </summary>
-    public class SmsBatchRequest : BaseSignRequest
+    class SmsBatchRequest : BaseSignRequest
     {
         /// <summary>
         /// 短信类型（参考短信类型列表）
@@ -17,7 +18,12 @@ namespace sign_sdk_net.entity.request.sms
         /// <summary>
         /// 短信参数
         /// </summary>
-        public List<Params> @params { set; get; }
+        [JsonProperty(PropertyName = "params")]
+        public List<Params> req_params { get; set; }
+
+        public void addParams(Params param) {
+            (req_params = req_params == null ? new List<Params>() : req_params).Add(param);
+        }
     }
     public class Params
     {

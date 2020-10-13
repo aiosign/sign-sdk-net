@@ -25,7 +25,7 @@ namespace sign_sdk_net.client
         /// 文件id 验章
         /// </summary>
         /// <param name="signCheckCommonRequest"></param>
-        public SignCheckCommonResponse CheckCommon(SignCheckCommonRequest signCheckCommonRequest)
+        public SignCheckCommonResponse checkCommon(SignCheckCommonRequest signCheckCommonRequest)
         {
             SignRequest request = new SignRequest(signCheckCommonRequest);
             request.apiUrl = ApiUrlConstant.SignCheck.CheckCommon;
@@ -36,7 +36,7 @@ namespace sign_sdk_net.client
         /// </summary>
         /// <param name="signCheckFileRequest"></param>
         /// <returns></returns>
-        public SignCheckFileResponse CheckFile(SignCheckFileRequest request) {
+        public SignCheckFileResponse checkFile(SignCheckFileRequest request) {
             if (
                request.fileData == null || request.fileData.Length == 0
                || request.fileDataName == null || request.fileDataName.Trim() == string.Empty

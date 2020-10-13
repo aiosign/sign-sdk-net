@@ -56,20 +56,20 @@ namespace sign_sdk_net.client
             return response;
         }
         /// <summary>
-        /// OCR银行卡
+        /// 获取OCR可用识别类型
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public BaseSignResponse ocrCardType()
+        public Dictionary<string, object> ocrCardType()
         {
-            SignRequest signRequest = new SignRequest(new BaseSignRequest());
+            SignRequest signRequest = new SignRequest();
             signRequest.apiUrl = ApiUrlConstant.Auth.ocrCardType;
-            BaseSignResponse response = this.Send<BaseSignResponse>(signRequest);
+            Dictionary<string, object> response = this.Send<Dictionary<string, object>>(signRequest);
             return response;
         }
 
         /// <summary>
-        /// OCRObject
+        /// 证件识别
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -117,7 +117,7 @@ namespace sign_sdk_net.client
             return response;
         }
         /// <summary>
-        /// 数据宝企业四要素认证
+        /// 企业四要素认证
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -165,7 +165,7 @@ namespace sign_sdk_net.client
             return response;
         }
         /// <summary>
-        /// 获取百度身份验证-语音验证数据
+        /// 获取百度语音验证码
         /// </summary>
         /// <returns></returns>
         public BaiduSessionCodeResponse baiduSessionCode()
@@ -176,7 +176,7 @@ namespace sign_sdk_net.client
             return response;
         }
         /// <summary>
-        /// 获取百度身份验证-语音验证数据
+        /// 百度语音验证
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -188,7 +188,7 @@ namespace sign_sdk_net.client
             return response;
         }
         /// <summary>
-        /// 获取百度身份验证-身份验证
+        /// 百度身份验证
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>

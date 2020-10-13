@@ -25,9 +25,15 @@ namespace sign_sdk_net.entity.request.template
 		/// <summary>
 		/// 文本域参数
 		/// </summary>
-		public List<TextParam> simpleFormFields;
+		public List<SimpleFormField> simple_form_fields;
 
-		public class TextParam {
+		public void addSimpleFormField(SimpleFormField simpleFormField)
+		{
+			(simple_form_fields = simple_form_fields == null ? new List<SimpleFormField>() : simple_form_fields).Add(simpleFormField);
+		}
+
+		public class SimpleFormField
+		{
 			/// <summary>
 			/// 合同名字
 			/// </summary>

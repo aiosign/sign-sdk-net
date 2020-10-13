@@ -24,7 +24,7 @@ namespace sign_sdk_net.client
         /// </summary>
         /// <param name="templateFileAddRequest"></param>
         /// <returns></returns>
-        public TemplateAddResponse templateAdd(TemplateFileAddRequest templateFileAddRequest)
+        public TemplateAddResponse addTemplateAndFile(TemplateFileAddRequest templateFileAddRequest)
         {
             //上传合同文件
             FileUploadRequest fileUploadRequest = templateFileAddRequest.fileUploadRequest;
@@ -43,7 +43,7 @@ namespace sign_sdk_net.client
         /// </summary>
         /// <param name="sealAddRequest"></param>
         /// <returns></returns>
-        public TemplateAddResponse templateAdd(TemplateAddRequest templateAddRequest)
+        public TemplateAddResponse add(TemplateAddRequest templateAddRequest)
         {
             SignRequest signRequest = new SignRequest(templateAddRequest);
             signRequest.apiUrl = ApiUrlConstant.Template.Add;
@@ -55,7 +55,7 @@ namespace sign_sdk_net.client
         /// </summary>
         /// <param name="templateQueryRequest"></param>
         /// <returns></returns>
-        public TemplateQueryResponse templateQuery(TemplateQueryRequest templateQueryRequest)
+        public TemplateQueryResponse query(TemplateQueryRequest templateQueryRequest)
         {
             SignRequest signRequest = new SignRequest(templateQueryRequest);
             signRequest.apiUrl = ApiUrlConstant.Template.Query;
@@ -67,7 +67,7 @@ namespace sign_sdk_net.client
         /// </summary>
         /// <param name="templateDelRequest"></param>
         /// <returns></returns>
-        public TemplateDelResponse templateDelete(TemplateDelRequest templateDelRequest)
+        public TemplateDelResponse remove(TemplateDelRequest templateDelRequest)
         {
             SignRequest signRequest = new SignRequest(templateDelRequest);
             signRequest.apiUrl = ApiUrlConstant.Template.Delete;

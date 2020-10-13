@@ -26,7 +26,7 @@ namespace sign_sdk_net.entity.request.bases
         /// <summary>
         /// 请求体
         /// </summary>
-        public BaseSignRequest requestBody { get; set; }
+        public object requestBody { get; set; }
         /// <summary>
         /// api 请求地址
         /// </summary>
@@ -49,9 +49,11 @@ namespace sign_sdk_net.entity.request.bases
         /// 初始化request 对象
         /// </summary>
         /// <param name="body"></param>
-        public SignRequest(BaseSignRequest body)
+        public SignRequest(object body)
         {
             this.requestBody = body;
         }
+        public SignRequest()
+        { }
     }
 }

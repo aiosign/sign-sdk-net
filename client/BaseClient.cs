@@ -22,7 +22,7 @@ namespace sign_sdk_net.client
         /// <summary>
         /// token_key
         /// </summary>
-        private const string token_key = "Authentication";
+        public const string token_key = "Authentication";
         /// <summary>
         /// access_token_key
         /// </summary>
@@ -30,15 +30,15 @@ namespace sign_sdk_net.client
         /// <summary>
         /// sign_key
         /// </summary>
-        private const string sign_key = "sign";
+        public const string sign_key = "sign";
         /// <summary>
         /// 应用id
         /// </summary>
-        private string appId { get; set; }
+        public string appId { get; set; }
         /// <summary>
         /// 应用秘钥
         /// </summary>
-        private string appSecret { get; set; }
+        public string appSecret { get; set; }
         public BaseClient(string baseUrl, TokenDataSource tokenDataSource, string appId, string appSecret)
         {
             this.baseUrl = baseUrl;
@@ -165,9 +165,5 @@ namespace sign_sdk_net.client
             }
             return response.GetData<T>();
         }
-
-
-
-
     }
 }

@@ -68,6 +68,11 @@ namespace sign_sdk_net.client
         public SignOperateClient SignOperate { get; private set; }
 
         /// <summary>
+        /// 事件证书签章 api对象
+        /// </summary>
+        public EventCertSignClient EventCertSign { get; private set; }
+
+        /// <summary>
         /// 文件管理
         /// </summary>
         public FileManagerClient FileManager { get; private set; }
@@ -100,6 +105,7 @@ namespace sign_sdk_net.client
             this.Contract = new ContractClient(baseUrl, tokenDataSource, appId, appSecret);
             this.ScanContract = new ScanContractClient(baseUrl, tokenDataSource, appId, appSecret);
             this.EventCertScanContract = new EventCertScanContractClient(baseUrl, tokenDataSource, appId, appSecret);
+            this.EventCertSign = new EventCertSignClient(baseUrl, tokenDataSource, appId, appSecret);
             this.SignOperate = new SignOperateClient(baseUrl, tokenDataSource, appId, appSecret);
             this.SignCheck = new SignCheckClient(baseUrl, tokenDataSource, appId, appSecret);
             this.Sms=new SmsClient(baseUrl, tokenDataSource, appId, appSecret);

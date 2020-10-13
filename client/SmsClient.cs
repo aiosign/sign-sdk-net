@@ -34,11 +34,11 @@ namespace sign_sdk_net.client
         /// </summary>
         /// <param name="smsBatchRequest"></param>
         /// <returns></returns>
-        public SmsBatchResponse smsBatch(SmsBatchRequest smsBatchRequest)
+        public List<SmsBatchResponse> smsBatch(SmsBatchRequest smsBatchRequest)
         {
             SignRequest signRequest = new SignRequest(smsBatchRequest);
             signRequest.apiUrl = ApiUrlConstant.Sms.batch;
-            SmsBatchResponse response = this.Send<SmsBatchResponse>(signRequest);
+            List<SmsBatchResponse> response = this.Send<List<SmsBatchResponse>>(signRequest);
             return response;
         }
 

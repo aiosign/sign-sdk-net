@@ -355,7 +355,7 @@ namespace sign_sdk_net.constant
             /// </summary>
             public const string ocrCardType = Base + "/OCR-type-list";
             /// <summary>
-            /// OCRObject
+            /// 证件识别
             /// </summary>
             public const string ocrObject = Base + "/OCR-Object";
             /// <summary>
@@ -363,7 +363,7 @@ namespace sign_sdk_net.constant
             /// </summary>
             public const string enterpriseThreeQuery = Base + "/enterprise-encry-query";
             /// <summary>
-            /// 数据宝企业四要素认证
+            /// 企业四要素认证
             /// </summary>
             public const string entFour = Base + "/entFour";
             /// <summary>
