@@ -43,9 +43,9 @@ namespace sign_sdk_net
 
         }
 
-        const string baseUrl = "http://192.168.1.206:8000/api";
-        const string appId = "729742355062214656";
-        const string appSecret = "VBXdvJLpOBjViUEPRt";
+        const string baseUrl = "http://127.0.0.1:80";
+        const string appId = "Your AppId.";
+        const string appSecret = "Your AppSecret.";
 
 
         static void Main(string[] args)
