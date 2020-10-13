@@ -47,12 +47,11 @@ namespace sign_sdk_net
         const string appId = "Your AppId.";
         const string appSecret = "Your AppSecret.";
 
-
         static void Main(string[] args)
         {
             //文件相关client端
             FileManagerClient fileManagerClient = new FileManagerClient(baseUrl, new DictionaryTokenDataSource(), appId, appSecret);
-        
+
             //上传文件相关API
             checkUploadFile(fileManagerClient);
             //下载文件相关API

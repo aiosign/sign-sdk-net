@@ -15,7 +15,7 @@ namespace sign_sdk_net.client
         {
         }
 
-        public T Send<T>(SignRequest request) where T : class
+        public new T Send<T>(SignRequest request) where T : class
         {
             // 创建url
             string url = URLUtil.ToPaeameter(baseUrl + request.apiUrl, request.parames);
