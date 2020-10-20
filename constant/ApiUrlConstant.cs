@@ -125,6 +125,10 @@ namespace sign_sdk_net.constant
             /// </summary>
             public const string GetSealInfos = Base + "/getSealInfos";
             /// <summary>
+            /// 查询用户所有印章
+            /// </summary>
+            public const string GetSealInfosByUserOrType = Base + "/getSealInfosByUsersOrSealTypes";
+            /// <summary>
             /// 注销印章
             /// </summary>
             public const string Remove = Base + "/remove";

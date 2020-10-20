@@ -84,7 +84,6 @@ namespace sign_sdk_net.test
             companyRegisterRequest.agent_phone = "13711111111";
             companyRegisterRequest.agent_email = "demo@sdgd.com";
             companyRegisterRequest.description = "描述信息:demo code";
-
             try
             {
                 CompanyRegisterResponse companyRegisterResponse = client.Company.companyRegister(companyRegisterRequest);

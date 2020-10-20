@@ -79,5 +79,40 @@ namespace sign_sdk_net.test
 				Console.WriteLine("文件验签-异常为：" + e.Message);
 			}
 		}
+		/// <summary>
+		/// 文件验章V2
+		/// </summary>
+		public void checkFileV2()
+		{
+			
+			try
+			{
+				FileUploadRequest fileUploadRequest = new FileUploadRequest("D://contract//签署完成合同.pdf", "签署完成合同.pdf");
+
+				SignCheckFileV2Request request = new SignCheckFileV2Request();
+				request.fileData = fileUploadRequest.fileData;
+				request.fileDataName = fileUploadRequest.fileDataName;
+
+				SignCheckFileV2Response signCheckFileResponse = client.SignCheck.CheckFileV2(request);
+				Console.WriteLine("文件验章V2-响应数据:" + JSONUtil.getJsonStringFromObject(signCheckFileResponse));
+
+			}
+			catch (SignApplicationException sae)
+			{
+				// 捕获网关校验数据
+				Console.WriteLine("文件验章V2-网关异常状态码为：" + sae.return_code);
+				Console.WriteLine("文件验章V2-网关异常信息为：" + sae.return_message);
+			}
+			catch (SignServerException sse)
+			{
+				// 捕获网关校验数据
+				Console.WriteLine("文件验章V2-业务异常状态码为：" + sse.result_code);
+				Console.WriteLine("文件验章V2-业务异常信息为：" + sse.result_message);
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("文件验章V2-异常为：" + e.Message);
+			}
+		}
 	}
 }

@@ -69,11 +69,23 @@ namespace sign_sdk_net.client
         /// </summary>
         /// <param name="sealGetSealInfosRequest"></param>
         /// <returns></returns>
-        public List<SealGetSealInfosResponse> sealGetSealInfos(SealGetSealInfosRequest sealGetSealInfosRequest)
+        public List<GetSealInfosResponse> getSealInfos(GetSealInfosRequest sealGetSealInfosRequest)
         {
             SignRequest signRequest = new SignRequest(sealGetSealInfosRequest);
             signRequest.apiUrl = ApiUrlConstant.Seal.GetSealInfos;
-            List<SealGetSealInfosResponse> response = this.Send<List<SealGetSealInfosResponse>>(signRequest);
+            List<GetSealInfosResponse> response = this.Send<List<GetSealInfosResponse>>(signRequest);
+            return response;
+        }
+        /// <summary>
+        /// 根据用户查询所有印章
+        /// </summary>
+        /// <param name="sealGetSealInfosRequest"></param>
+        /// <returns></returns>
+        public List<GetSealInfosByUserOrTypeResponse> getSealInfosByUserOrType(GetSealInfosByUserOrTypeRequest sealGetSealInfosRequest)
+        {
+            SignRequest signRequest = new SignRequest(sealGetSealInfosRequest);
+            signRequest.apiUrl = ApiUrlConstant.Seal.GetSealInfosByUserOrType;
+            List<GetSealInfosByUserOrTypeResponse> response = this.Send<List<GetSealInfosByUserOrTypeResponse>>(signRequest);
             return response;
         }
 

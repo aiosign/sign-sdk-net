@@ -103,7 +103,7 @@ namespace sign_sdk_net.test
 		{
 			try
 			{
-				List<SealGetSealInfosResponse> getSealInfosResponse = client.Seal.sealGetSealInfos(new SealGetSealInfosRequest("00765245060136194048"));
+				List<GetSealInfosResponse> getSealInfosResponse = client.Seal.getSealInfos(new GetSealInfosRequest("00765245060136194048"));
 				Console.WriteLine("根据用户查询印章-响应数据:" + JSONUtil.getJsonStringFromObject(getSealInfosResponse));
 
 			}
@@ -118,6 +118,35 @@ namespace sign_sdk_net.test
 				// 捕获网关校验数据
 				Console.WriteLine("根据用户查询印章-业务异常状态码为：" + sse.result_code);
 				Console.WriteLine("根据用户查询印章-业务异常信息为：" + sse.result_message);
+			}
+		}
+		/// <summary>
+		///  根据用户、印章类型查询所有印章
+		/// </summary>
+		public void getSealInfosByUserOrType()
+		{
+			GetSealInfosByUserOrTypeRequest request = new GetSealInfosByUserOrTypeRequest();
+			request.page_num = 1;//数据页码
+			request.page_size = 10;//数据长度
+			request.user_ids = "00765245060136194048,10728297460485214208";//用户ID，以逗号分隔
+			request.seal_types = "01,99";//印章类型，以逗号分隔
+			try
+			{
+				List<GetSealInfosByUserOrTypeResponse> getSealInfosResponse = client.Seal.getSealInfosByUserOrType(request);
+				Console.WriteLine("根据用户、印章类型查询所有印章-响应数据:" + JSONUtil.getJsonStringFromObject(getSealInfosResponse));
+
+			}
+			catch (SignApplicationException sae)
+			{
+				// 捕获网关校验数据
+				Console.WriteLine("根据用户、印章类型查询所有印章-网关异常状态码为：" + sae.return_code);
+				Console.WriteLine("根据用户、印章类型查询所有印章-网关异常信息为：" + sae.return_message);
+			}
+			catch (SignServerException sse)
+			{
+				// 捕获网关校验数据
+				Console.WriteLine("根据用户、印章类型查询所有印章-业务异常状态码为：" + sse.result_code);
+				Console.WriteLine("根据用户、印章类型查询所有印章-业务异常信息为：" + sse.result_message);
 			}
 		}
 

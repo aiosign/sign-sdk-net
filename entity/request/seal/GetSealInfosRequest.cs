@@ -8,7 +8,7 @@ namespace sign_sdk_net.entity.request.seal
 	/// <summary>
 	/// 查询用户所以印章请求参数
 	/// </summary>
-	class SealGetSealInfosRequest:BaseSignRequest
+	class GetSealInfosRequest:BaseSignRequest
 	{
 		/// <summary>
 		/// 用户id
@@ -18,7 +18,7 @@ namespace sign_sdk_net.entity.request.seal
 		/// 构造函数
 		/// </summary>
 		/// <param name="user_id"></param>
-		public SealGetSealInfosRequest(String user_id)
+		public GetSealInfosRequest(String user_id)
 		{
 			this.user_id = user_id;
 		}

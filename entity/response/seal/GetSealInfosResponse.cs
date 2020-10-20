@@ -7,7 +7,7 @@ namespace sign_sdk_net.entity.response.seal
 	/// <summary>
 	/// 根据用户查询所有印章相应参数
 	/// </summary>
-	class SealGetSealInfosResponse
+	class GetSealInfosResponse
 	{
 		/// <summary>
 		/// 文件id
