@@ -26,6 +26,14 @@ namespace sign_sdk_net.entity.response.seal
 		/// </summary>
 		public string size { set; get; }
 		/// <summary>
+		/// 文件ID
+		/// </summary>
+		public string file_id { set; get; }
+		/// <summary>
+		/// 文件状态 1 paas 2 私有 3 共有 
+		/// </summary>
+		public string file_resource_status { set; get; }
+		/// <summary>
 		/// 用户ID
 		/// </summary>
 		public string user_id { set; get; }
