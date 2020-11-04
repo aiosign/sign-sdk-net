@@ -7,6 +7,7 @@ using sign_sdk_net.entity.request;
 using sign_sdk_net.entity.request.contract;
 using sign_sdk_net.entity.response.contract;
 using sign_sdk_net.exception;
+using static sign_sdk_net.entity.request.contract.ContractAbolishRequest;
 
 namespace sign_sdk_net.test
 {
@@ -168,8 +169,16 @@ namespace sign_sdk_net.test
 		{
 			try
 			{
-				ContractAbolishResponse response = client.Contract.abolish(new ContractAbolishRequest("0006690e31224ac3a29a0f921cca1756", "00735875524752723968"));
+				SignParams signParams = new SignParams();
+				signParams.height = 50.0;
+				signParams.width = 50.0;
+				signParams.page_number = 2;
+				signParams.horizontal = 120;
+				signParams.vertical = 20;
+				ContractAbolishResponse response = client.Contract.abolish(new ContractAbolishRequest("0006690e31224ac3a29a0f921cca1756", "00735875524752723968", signParams));
 				Console.WriteLine("作废合同-响应数据:" + JSONUtil.getJsonStringFromObject(response));
+
+
 			}
 			catch (SignApplicationException sae)
 			{
