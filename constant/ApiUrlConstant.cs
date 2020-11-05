@@ -178,6 +178,7 @@ namespace sign_sdk_net.constant
         public static class Contract
         {
             private const string Base = "/v1";
+            private const string BaseV2 = "/v2/sign";
             /// <summary>
             /// 添加合同
             /// </summary>
@@ -198,6 +199,10 @@ namespace sign_sdk_net.constant
             /// 作废合同接口
             /// </summary>
             public const string Abolish = Base + "/contract/abolish";
+            /// <summary>
+            /// 作废合同V2接口
+            /// </summary>
+            public const string AbolishV2 = BaseV2 + "/contract/abolish";
             /// <summary>
             /// 绑定合同接口
             /// </summary>

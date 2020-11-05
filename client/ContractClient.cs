@@ -99,6 +99,18 @@ namespace sign_sdk_net.client
             return response;
         }
         /// <summary>
+        /// 作废合同V2
+        /// </summary>
+        /// <param name="contractRenderRequest"></param>
+        /// <returns></returns>
+        public ContractAbolishResponse abolishV2(ContractAbolishV2Request contractAbolishV2Request)
+        {
+            SignRequest signRequest = new SignRequest(contractAbolishV2Request);
+            signRequest.apiUrl = ApiUrlConstant.Contract.AbolishV2;
+            ContractAbolishResponse response = base.Send<ContractAbolishResponse>(signRequest);
+            return response;
+        }
+        /// <summary>
         /// 绑定合同
         /// </summary>
         /// <param name="contractBindPhoneRequest"></param>

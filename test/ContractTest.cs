@@ -194,6 +194,40 @@ namespace sign_sdk_net.test
 			}
 		}
 		/// <summary>
+		/// 作废合同V2
+		/// </summary>
+		public void abolishV2()
+		{
+			try
+			{
+				ContractAbolishV2Request.SignParams signParams = new ContractAbolishV2Request.SignParams();
+				signParams.height = 50.0;
+				signParams.width = 50.0;
+				signParams.page_number = 2;
+				signParams.horizontal = 120;
+				signParams.vertical = 20;
+				List<ContractAbolishV2Request.SignParams> fields = new List<ContractAbolishV2Request.SignParams>();
+				fields.Add(signParams);
+
+				ContractAbolishResponse response = client.Contract.abolishV2(new ContractAbolishV2Request("0006690e31224ac3a29a0f921cca1756", "00735875524752723968", fields));
+				Console.WriteLine("作废合同V2-响应数据:" + JSONUtil.getJsonStringFromObject(response));
+
+
+			}
+			catch (SignApplicationException sae)
+			{
+				// 捕获网关校验数据
+				Console.WriteLine("作废合同-网关异常状态码为：" + sae.return_code);
+				Console.WriteLine("作废合同-网关异常信息为：" + sae.return_message);
+			}
+			catch (SignServerException sse)
+			{
+				// 捕获网关校验数据
+				Console.WriteLine("作废合同-业务异常状态码为：" + sse.result_code);
+				Console.WriteLine("作废合同-业务异常信息为：" + sse.result_message);
+			}
+		}
+		/// <summary>
 		/// 绑定合同
 		/// </summary>
 		public void bind()
